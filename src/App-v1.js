@@ -52,7 +52,7 @@ const average = arr =>
 
 const NavBar = ({ children }) => {
   return (
-    <nav className="nav-bar">
+    <nav className='nav-bar'>
       <Logo />
       {children}
     </nav>
@@ -61,8 +61,8 @@ const NavBar = ({ children }) => {
 
 const Logo = () => {
   return (
-    <div className="logo">
-      <span role="img">🍿</span>
+    <div className='logo'>
+      <span role='img'>🍿</span>
       <h1>usePopcorn</h1>
     </div>
   );
@@ -73,9 +73,9 @@ const Search = () => {
 
   return (
     <input
-      className="search"
-      type="text"
-      placeholder="Search movies..."
+      className='search'
+      type='text'
+      placeholder='Search movies...'
       value={query}
       onChange={e => setQuery(e.target.value)}
     />
@@ -84,7 +84,7 @@ const Search = () => {
 
 const NumResults = ({ movies }) => {
   return (
-    <p className="num-results">
+    <p className='num-results'>
       Found <strong>{movies.length}</strong> results
     </p>
   );
@@ -94,8 +94,8 @@ const Box = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="box">
-      <button className="btn-toggle" onClick={() => setIsOpen(open => !open)}>
+    <div className='box'>
+      <button className='btn-toggle' onClick={() => setIsOpen(open => !open)}>
         {isOpen ? '–' : '+'}
       </button>
       {isOpen && children}
@@ -105,7 +105,7 @@ const Box = ({ children }) => {
 
 const MovieList = ({ movies }) => {
   return (
-    <ul className="list">
+    <ul className='list'>
       {movies?.map(movie => (
         <Movie movie={movie} key={movie.imdbID} />
       ))}
@@ -134,7 +134,7 @@ const WatchedSummary = ({ watched }) => {
   const avgRuntime = average(watched.map(movie => movie.runtime));
 
   return (
-    <div className="summary">
+    <div className='summary'>
       <h2>Movies you watched</h2>
       <div>
         <p>
@@ -143,11 +143,11 @@ const WatchedSummary = ({ watched }) => {
         </p>
         <p>
           <span>⭐️</span>
-          <span>{avgImdbRating}</span>
+          <span>{avgImdbRating.toFixed(2)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{avgUserRating}</span>
+          <span>{avgUserRating.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
@@ -160,7 +160,7 @@ const WatchedSummary = ({ watched }) => {
 
 const WatchedMoviesList = ({ watched }) => {
   return (
-    <ul className="list">
+    <ul className='list'>
       {watched.map(movie => (
         <WatchedMovie movie={movie} key={movie.imdbID} />
       ))}
@@ -192,7 +192,7 @@ const WatchedMovie = ({ movie }) => {
 };
 
 const Main = ({ children }) => {
-  return <main className="main">{children}</main>;
+  return <main className='main'>{children}</main>;
 };
 
 export default function App() {
